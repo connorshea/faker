@@ -16,9 +16,9 @@ module Faker
       ##
       # Produces a random string of alphabetic characters (no digits)
       #
-      # @param char_count {Integer} The length of the string to generate
+      # @param number [Integer] The length of the string to generate
       #
-      # @return {String}
+      # @return [String]
       #
       # @example Faker::Alphanumeric.alpha(10)
       #   "zlvubkrwga"
@@ -34,11 +34,11 @@ module Faker
       ##
       # Produces a random string of alphanumeric characters
       #
-      # @param char_count {Integer} The length of the string to generate
+      # @param char_count [Integer] The length of the string to generate
       #
-      # @return {String}
+      # @return [String]
       #
-      # @example Faker::Alphanumeric.alpha(10)
+      # @example Faker::Alphanumeric.alpha(number: 10)
       #   "3yfq2phxtb"
       #
       # @faker.version 1.9.2
