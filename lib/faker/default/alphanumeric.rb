@@ -34,7 +34,7 @@ module Faker
       ##
       # Produces a random string of alphanumeric characters
       #
-      # @param char_count [Integer] The length of the string to generate
+      # @param number [Integer] The length of the string to generate
       #
       # @return [String]
       #
