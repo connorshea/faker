@@ -20,8 +20,8 @@ module Faker
       #
       # @return [String]
       #
-      # @example Faker::Alphanumeric.alpha(number: 10)
-      #   "zlvubkrwga"
+      # @example
+      #   Faker::Alphanumeric.alpha(number: 10) #=> "zlvubkrwga"
       #
       # @faker.version 1.9.2
       def alpha(number: 32)
@@ -38,8 +38,8 @@ module Faker
       #
       # @return [String]
       #
-      # @example Faker::Alphanumeric.alpha(number: 10)
-      #   "3yfq2phxtb"
+      # @example
+      #   Faker::Alphanumeric.alpha(number: 10) #=> "3yfq2phxtb"
       #
       # @faker.version 1.9.2
       def alphanumeric(number: 32)
