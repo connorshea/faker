@@ -20,7 +20,7 @@ module Faker
       #
       # @return [String]
       #
-      # @example Faker::Alphanumeric.alpha(10)
+      # @example Faker::Alphanumeric.alpha(number: 10)
       #   "zlvubkrwga"
       #
       # @faker.version 1.9.2
