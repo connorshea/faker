@@ -5,7 +5,7 @@ module Faker
     class << self
       # @private
       SUPPORTED_FORMATS = %w[png jpg bmp].freeze
-      
+
       ##
       # Produces a URL for an avatar from robohash.org
       #
