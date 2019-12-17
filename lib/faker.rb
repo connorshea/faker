@@ -151,11 +151,11 @@ module Faker
 
       # Call I18n.translate with our configured locale if no
       # locale is specified
-      def translate(*args)
+      def translate(*args, **kwargs)
         opts = args.last.is_a?(Hash) ? args.pop : {}
         opts[:locale] ||= Faker::Config.locale
         opts[:raise] = true
-        I18n.translate(*args.push(opts))
+        I18n.translate(*args, **kwargs.merge(opts))
       rescue I18n::MissingTranslationData
         opts = args.last.is_a?(Hash) ? args.pop : {}
         opts[:locale] = :en
@@ -164,7 +164,7 @@ module Faker
         # translation was missing.  If the translation isn't
         # in en either, then it will raise again.
         disable_enforce_available_locales do
-          I18n.translate(*args.push(opts))
+          I18n.translate(*args, **kwargs.merge(opts))
         end
       end
 
