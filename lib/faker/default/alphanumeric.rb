@@ -7,6 +7,11 @@ module Faker
     # @private
     ALPHANUMS = LLetters + Numbers
 
+    ##
+    # Same as ALPHANUMS, with every character as a string
+    # @private
+    ALPHANUM_CHARS = ALPHANUMS.map(&:to_s).each(&:freeze).freeze
+
     class << self
       ##
       # Produces a random string of alphabetic characters (no digits)
@@ -23,7 +28,10 @@ module Faker
         char_count = resolve(number)
         return '' if char_count.to_i < 1
 
-        Array.new(char_count) { sample(self::LLetters) }.join
+        letters = self::LLetters
+        result = ::String.new('', capacity: char_count)
+        char_count.times { result << sample(letters) }
+        result
       end
 
       ##
@@ -49,7 +57,11 @@ module Faker
         raise ArgumentError, 'min_alpha must be greater than or equal to 0' if min_alpha&.negative?
         raise ArgumentError, 'min_numeric must be greater than or equal to 0' if min_numeric&.negative?
 
-        return Array.new(char_count) { sample(ALPHANUMS) }.join if min_alpha.zero? && min_numeric.zero?
+        if min_alpha.zero? && min_numeric.zero?
+          result = ::String.new('', capacity: char_count)
+          char_count.times { result << sample(ALPHANUM_CHARS) }
+          return result
+        end
 
         raise ArgumentError, 'min_alpha + min_numeric must be <= number' if min_alpha + min_numeric > char_count
 
